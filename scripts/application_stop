@@ -21,7 +21,7 @@ if [ -d "${RELEASE_DIR}" ]; then
     # Get current version running with REVISION file inside
     VERSION=$(find ${RELEASE_DIR}/  -maxdepth 2 -name "REVISION" | tail -n 1 | rev | cut -c 9- | rev)  
 else 
-   # Create release dir 
+   # Create release dir if not exist
     mkdir -p ${RELEASE_DIR}/ 
 fi
 

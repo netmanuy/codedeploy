@@ -20,4 +20,8 @@ hooks:
     - location: scripts/application_start
       timeout: 300
       runas: root
+  ValidateService:
+    - location: scripts/validate_service
+      timeout: 300
+      runas: root
 

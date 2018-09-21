@@ -13,7 +13,7 @@ PROJECT_FOLDER="/var/www/html"
 # Exporting paths
 export PATH=$PATH:/bin:/usr/bin:/usr/local/bin
 
-# Get Latest version
+# Get latest version
 VERSION=$(ls ${RELEASE_DIR}/ | tail -n 1)
 
 # Generate Symlink to latest version

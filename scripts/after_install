@@ -6,9 +6,6 @@ CODE_VERSION="/var/www/codeversion"
 # We keep a history of the releases on this folder
 RELEASE_DIR="/var/www/code_release"
 
-# Project folder name
-PROJECT_FOLDER="/var/www/html"
-
 # Apache Setup
 APP_USER="apache"
 APP_GROUP="apache"
@@ -40,7 +37,7 @@ VERSION=$(ls ${RELEASE_DIR}/ | tail -n 1)
 # Generate REVISION
 echo ${DEPLOYMENT_ID} > ${RELEASE_DIR}/${VERSION}/REVISION
 
-# Change permissions
+# Change permissions on Aplication Folder
 ls -d ${RELEASE_DIR}/${VERSION}/* | xargs chown -R ${APP_USER}.${APACHE_GROUP}
 chown ${APP_USER}.${APP_GROUP} ${RELEASE_DIR}/${VERSION}/
 chmod g+w ${RELEASE_DIR}/${VERSION}/

@@ -8,14 +8,14 @@ hooks:
     - location: scripts/install_dependencies
       timeout: 300
       runas: root
-  AfterInstall:
+  ApplicationStop:
     - location: scripts/pregenerate_setup.sh
       timeout: 300
       runas: root
-  ApplicationStop:
-    - location: scripts/stop_server
-      timeout: 300
-      runas: root
+  # ApplicationStop:
+  #   - location: scripts/stop_server
+  #     timeout: 300
+  #     runas: root
   ApplicationStart:
     - location: scripts/start_server
       timeout: 300

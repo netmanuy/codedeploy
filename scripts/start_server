@@ -1,3 +1,16 @@
 #!/bin/bash
-#service httpd start
-systemctl start httpd.service
+
+# Check if Apache is running 
+isExistApp=$(pgrep httpd)
+
+# Apache is running
+if [[ -n  $isExistApp ]]; then
+    # Reload Apache in a nice and safely 
+    /usr/sbin/httpd -k graceful
+else
+    # Apache is not running
+   echo "Apache is not running"
+
+   # Exist 
+   exit 5;
+fi

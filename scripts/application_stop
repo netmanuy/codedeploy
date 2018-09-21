@@ -20,4 +20,5 @@ rm -rf ${CODE_VERSION}
 VERSION=$(find ${RELEASE_DIR}/  -maxdepth 2 -name "REVISION" | tail -n 1 | rev | cut -c 9- | rev)
 
 # Delete previous release if exist 
-ls -d ${RELEASE_DIR}/* | grep -v "${VERSION}" | xargs rm -rf 
+#ls -d ${RELEASE_DIR}/* | grep -v "${VERSION}" | xargs rm -rf 
+find ${RELEASE_DIR}/ -not -path "${VERSION}" -not -path "${RELEASE_DIR}" -type d -exec rm -r "{}" \;

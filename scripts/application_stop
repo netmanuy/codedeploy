@@ -16,11 +16,17 @@ export PATH=$PATH:/bin:/usr/bin:/usr/local/bin
 # Delete previous version in case of code exist
 rm -rf ${CODE_VERSION}
 
-# Create release dir 
-mkdir -p ${RELEASE_DIR}/
+# Check if release dir exist if not create the release dir
+if [ -d "${RELEASE_DIR}" ]; then
+    # Get current version running with REVISION file inside
+    VERSION=$(find ${RELEASE_DIR}/  -maxdepth 2 -name "REVISION" | tail -n 1 | rev | cut -c 9- | rev)  
+else 
+   # Create release dir 
+    mkdir -p ${RELEASE_DIR}/ 
+fi
 
 # Get current version running with REVISION file inside
-VERSION=$(find ${RELEASE_DIR}/  -maxdepth 2 -name "REVISION" | tail -n 1 | rev | cut -c 9- | rev)
+#VERSION=$(find ${RELEASE_DIR}/  -maxdepth 2 -name "REVISION" | tail -n 1 | rev | cut -c 9- | rev)
 
 # Delete previous release if exist 
 find ${RELEASE_DIR}/ -not -path "${VERSION}" -not -path "${RELEASE_DIR}" -type d -exec rm -r "{}" \;

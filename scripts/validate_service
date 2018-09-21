@@ -15,12 +15,14 @@ export PATH=$PATH:/bin:/usr/bin:/usr/local/bin
 
 # Check if release dir exist if not create the release dir
 if [ -d "${RELEASE_DIR}" ]; then
+    echo "Folder already exist ${RELEASE_DIR}"
     # Get current version running with REVISION file inside
-    VERSION=$(find ${RELEASE_DIR}/  -maxdepth 2 -name "REVISION" | tail -n 1 | rev | cut -c 9- | rev)  
+    #VERSION=$(find ${RELEASE_DIR}/  -maxdepth 2 -name "REVISION" | tail -n 1 | rev | cut -c 9- | rev)  
 
     # Delete previous release if exist 
-    find ${RELEASE_DIR}/ -not -path "${VERSION}" -not -path "${RELEASE_DIR}" -type d -exec rm -r "{}" \;
+    #find ${RELEASE_DIR}/ -not -path "${VERSION}" -not -path "${RELEASE_DIR}" -type d -exec rm -r "{}" \;
 else 
-   # Create release dir if not exist
-    mkdir -p ${RELEASE_DIR}/ 
+    #Create release dir if not exist
+    #mkdir -p ${RELEASE_DIR}/ 
+    echo "Folder not exist ${RELEASE_DIR}"
 fi

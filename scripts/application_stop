@@ -25,8 +25,5 @@ else
     mkdir -p ${RELEASE_DIR}/ 
 fi
 
-# Get current version running with REVISION file inside
-#VERSION=$(find ${RELEASE_DIR}/  -maxdepth 2 -name "REVISION" | tail -n 1 | rev | cut -c 9- | rev)
-
 # Delete previous release if exist 
-find ${RELEASE_DIR}/ -not -path "${VERSION}" -not -path "${RELEASE_DIR}" -type d -exec rm -r "{}" \;
+#find ${RELEASE_DIR}/ -not -path "${VERSION}" -not -path "${RELEASE_DIR}" -type d -exec rm -r "{}" \;

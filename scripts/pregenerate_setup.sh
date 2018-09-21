@@ -33,5 +33,9 @@ rsync -av ${CODE_VERSION}/  ${RELEASE_DIR}/${THIS_RELEASE}
 # Get Latest version
 VERSION=$(ls ${RELEASE_DIR}/ | tail -n 1)
 
+# Generate REVISION
+echo ${DEPLOYMENT_ID} > ${RELEASE_DIR}/${VERSION}/REVISION
+
 # Generate Symlink to latest version
 rm -rf ${PROJECT_FOLDER}; ln -s ${RELEASE_DIR}/${VERSION} ${PROJECT_FOLDER}
+

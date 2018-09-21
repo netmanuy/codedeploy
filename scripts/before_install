@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# This is the folder where we copy the code
+CODE_VERSION="/var/www/codeversion"
+
+# We keep a history of the releases on this folder
+RELEASE_DIR="/var/www/code_release"
+
+# Project folder name
+PROJECT_FOLDER="/var/www/html"
+
+#######################################
+###### NOT EDIT BEYOND THIS LINE ######
+#######################################
+
+# Exporting paths
+export PATH=$PATH:/bin:/usr/bin:/usr/local/bin

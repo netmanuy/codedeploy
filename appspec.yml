@@ -4,20 +4,20 @@ files:
   - source: /www/
     destination: /var/www/codeversion/
 hooks:
-  BeforeInstall:
-    - location: scripts/install_dependencies
-      timeout: 300
-      runas: root
-  ApplicationStop:
-    - location: scripts/pregenerate_setup.sh
-      timeout: 300
-      runas: root
-  # ApplicationStop:
-  #   - location: scripts/stop_server
+  # BeforeInstall:
+  #   - location: scripts/install_dependencies
   #     timeout: 300
   #     runas: root
+  BeforeInstall:
+    - location: scripts/beforeinstall_setup
+      timeout: 300
+      runas: root
+  AfterInstall: 
+    - location: scripts/aferinstall_setup
+      timeout: 300
+      runas: root
   ApplicationStart:
-    - location: scripts/start_server
+    - location: scripts/applicationstart_setup
       timeout: 300
       runas: root
 

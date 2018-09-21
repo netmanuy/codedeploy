@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# This is the folder where we copy the code
+CODE_VERSION="/var/www/codeversion"
+
+# Delete previous version in case of code exist
+rm -rf ${CODE_VERSION}

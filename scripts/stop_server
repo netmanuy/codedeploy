@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Try changes
-isExistApp=$(pgrep httpd)
-if [[ -n  $isExistApp ]]; then
-    #service httpd stop       
-    systemctl stop httpd.service
-fi
-

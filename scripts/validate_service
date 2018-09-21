@@ -21,8 +21,8 @@ if [ -d "${RELEASE_DIR}" ]; then
     VERSION=$(ls ${RELEASE_DIR}/ | tail -n 1)
 
     # Debug only
-    echo ${VERSION} > /root/test
+    #echo ${VERSION} > /root/test
 
     # Delete previous release if exist 
-    #find ${RELEASE_DIR}/ -not -path "${VERSION}" -not -path "${RELEASE_DIR}" -type d -exec rm -r "{}" \;
+    ls -d ${RELEASE_DIR}/* | grep -v ${VERSION} | xargs rm -rf 
 fi

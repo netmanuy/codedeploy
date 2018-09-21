@@ -4,20 +4,20 @@ files:
   - source: /www/
     destination: /var/www/codeversion/
 hooks:
-  # BeforeInstall:
-  #   - location: scripts/install_dependencies
-  #     timeout: 300
-  #     runas: root
+  ApplicationStop:
+    - location: scripts/application_stop
+      timeout: 300
+      runas: root
   BeforeInstall:
-    - location: scripts/beforeinstall_setup
+    - location: scripts/before_install
       timeout: 300
       runas: root
   AfterInstall: 
-    - location: scripts/aferinstall_setup
+    - location: scripts/after_install
       timeout: 300
       runas: root
   ApplicationStart:
-    - location: scripts/applicationstart_setup
+    - location: scripts/application_start
       timeout: 300
       runas: root
 

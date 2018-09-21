@@ -9,6 +9,10 @@ RELEASE_DIR="/var/www/code_release"
 # Project folder name
 PROJECT_FOLDER="/var/www/html"
 
+# Apache Setup
+APP_USER="apache"
+APP_GROUP="apache"
+
 # See this for a list of possible values:
 # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 #TIMEZONE=America/New_York
@@ -35,3 +39,8 @@ VERSION=$(ls ${RELEASE_DIR}/ | tail -n 1)
 
 # Generate REVISION
 echo ${DEPLOYMENT_ID} > ${RELEASE_DIR}/${VERSION}/REVISION
+
+# Change permissions
+ls -d ${RELEASE_DIR}/${VERSION}/* | xargs chown -R ${APP_USER}.${APACHE_GROUP}
+chown ${APP_USER}.${APP_GROUP} ${RELEASE_DIR}/${VERSION}/
+chmod g+w ${RELEASE_DIR}/${VERSION}/

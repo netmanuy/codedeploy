@@ -24,7 +24,7 @@ isExistApp=$(pgrep httpd)
 
 # Apache is running
 if [[ -n  $isExistApp ]]; then
-    # Reload Apache in a nice and safely 
+    # Reload Apache in a nice and safely way
     /usr/sbin/httpd -k graceful
 else
     # Apache is not running

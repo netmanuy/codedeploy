@@ -16,6 +16,9 @@ export PATH=$PATH:/bin:/usr/bin:/usr/local/bin
 # Delete previous version in case of code exist
 rm -rf ${CODE_VERSION}
 
+# Create release dir 
+mkdir -p ${RELEASE_DIR}/
+
 # Get current version running with REVISION file inside
 VERSION=$(find ${RELEASE_DIR}/  -maxdepth 2 -name "REVISION" | tail -n 1 | rev | cut -c 9- | rev)
 

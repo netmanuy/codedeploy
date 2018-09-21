@@ -9,8 +9,11 @@ if [[ -n  $isExistApp ]]; then
     /usr/sbin/httpd -k graceful
 else
     # Apache is not running
-   echo "Apache is not running"
+    systemctl start httpd.service
+   
+    # Just print debug message
+    echo "Apache is not running"
 
    # Exist 
-   exit 5;
+  #exit 5;
 fi

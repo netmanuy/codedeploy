@@ -3,14 +3,6 @@ os: linux
 files:
   - source: /www/
     destination: /var/www/codeversion/
-permissions:
-  - object: /var/www/example.com
-    pattern: "**"
-    owner: www-data
-    group: www-data
-    type:
-      - directory
-      - file
 hooks:
   ApplicationStop:
     - location: scripts/install_dependencies

@@ -3,5 +3,21 @@
 # This is the folder where we copy the code
 CODE_VERSION="/var/www/codeversion"
 
+# We keep a history of the releases on this folder
+RELEASE_DIR="/var/www/code_release"
+
+#######################################
+###### NOT EDIT BEYOND THIS LINE ######
+#######################################
+
+# Exporting paths
+export PATH=$PATH:/bin:/usr/bin:/usr/local/bin
+
 # Delete previous version in case of code exist
 rm -rf ${CODE_VERSION}
+
+# Cleanup previous folder
+VERSION=$(find ${RELEASE_DIR}/  -maxdepth 2 -name "REVISION" | tail -n 1 | rev | cut -c 9- | rev)
+
+# Delete previous release if exist 
+ls -d ${RELEASE_DIR}/* | grep -v "${VERSION}" | xargs rm -rf 
